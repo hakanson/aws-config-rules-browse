@@ -1,0 +1,15 @@
+{
+  "name": "aws-config-rules-browse",
+  "version": "1.0.0",
+  "description": "Generates a list of all AWS Config Rules which are part of Conformance Packs, grouped by their AWS Resource Type.",
+  "main": "index.js",
+  "dependencies": {
+    "js-yaml": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Hakanson",
+  "license": "MIT"
+}

@@ -1,0 +1,38 @@
+  
+on: workflow_dispatch
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: aws-config-rules-browse
+
+      - name: Checkout AWS Config Developer Guide repo
+        uses: actions/checkout@v2
+        with:
+          repository: awsdocs/aws-config-developer-guide
+          path: aws-config-developer-guide
+
+      - name: Checkout AWS Config Rules Repository repo
+        uses: actions/checkout@v2
+        with:
+          repository: awslabs/aws-config-rules
+          path: aws-config-rules
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'  
+
+      - run: |
+          cd aws-config-rules-browse
+          npm install
+          node index.js
+          git config user.name "Kevin Hakanson"
+          git config user.email "kevin.hakanson@gmail.com"
+          git add .
+          git commit -m "generated markdown"
+          git push
