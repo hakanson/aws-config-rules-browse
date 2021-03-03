@@ -37,7 +37,7 @@
 * [AWS::SSM::ManagedInstanceInventory](#aws::ssm::managedinstanceinventory)
 * [AWS::SSM::PatchCompliance](#aws::ssm::patchcompliance)
 * [AWS::SecretsManager::Secret](#aws::secretsmanager::secret)
-* [Trigger type: Periodic](#trigger type: periodic)
+* [Trigger type: Periodic](#trigger-type:-periodic)
 
 ---
 
