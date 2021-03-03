@@ -53,7 +53,7 @@ md.write('# AWS Config Rules Conformance Packs by Resource Type\n');
 
 md.write('\n## Table of Contents\n');
 for (const tckey of Object.keys(data).sort()) {
-  md.write(`* [${tckey}](#${tckey.toLowerCase()})\n`); // .replace(/::/g, '-')
+  md.write(`* [${tckey}](#${tckey.toLowerCase().replace(/\s/g, '-')})\n`); // .replace(/::/g, '-')
 }
 md.write('\n---\n')
 
