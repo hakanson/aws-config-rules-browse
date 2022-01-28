@@ -57,6 +57,10 @@ for (const tckey of Object.keys(data).sort()) {
 }
 md.write('\n---\n')
 
+let linkcount = 0;
+let links = {};
+let currentLink = '0';
+
 for (const [tkey, tvalue] of Object.entries(data).sort()) {
     md.write(`\n### ${tkey}\n`);
     for (const [rkey, rvalue] of Object.entries(tvalue).sort()) {
@@ -66,8 +70,20 @@ for (const [tkey, tvalue] of Object.entries(data).sort()) {
             md.write(`* ${rkey} (${Object.entries(rvalue.packs).length})\n`);
         }
         for (const [pkey, pvalue] of Object.entries(rvalue.packs).sort()) {
-            md.write(`  * [${pkey}](${configBase}${pvalue})\n`);
+            if (links.hasOwnProperty(pvalue)) {
+                currentLink = links[pvalue];
+            } else {
+                links[pvalue] = currentLink = '' + ++linkcount;
+            }
+            md.write(`  * [${pkey}][${currentLink}]\n`);
         }
     }
 }
+
+md.write('\n');
+for (const [lkey, lvalue] of Object.entries(links)) {
+    md.write(`[${lvalue}]: ${configBase}${lkey}\n`);
+}
+
+
 md.end();
