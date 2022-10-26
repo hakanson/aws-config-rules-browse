@@ -4,7 +4,7 @@
   "description": "Generates a list of all AWS Config Rules which are part of Conformance Packs, grouped by their AWS Resource Type.",
   "main": "index.js",
   "dependencies": {
-    "js-yaml": "^4.0.0"
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {},
   "scripts": {
